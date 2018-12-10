@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :teams, only: {:index, :create, :destroy }
+  resources :teams, only: [:index, :create, :destroy ]
 
   resources :projects do
     resources :rounds do
