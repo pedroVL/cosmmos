@@ -78,10 +78,12 @@ ActiveRecord::Schema.define(version: 2018_12_10_144222) do
   end
 
   create_table "teams", force: :cascade do |t|
-    t.integer "user"
-    t.integer "project"
+    t.bigint "user_id"
+    t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_teams_on_project_id"
+    t.index ["user_id"], name: "index_teams_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -106,4 +108,6 @@ ActiveRecord::Schema.define(version: 2018_12_10_144222) do
   add_foreign_key "messages", "chats"
   add_foreign_key "messages", "messages"
   add_foreign_key "rounds", "projects"
+  add_foreign_key "teams", "projects"
+  add_foreign_key "teams", "users"
 end
