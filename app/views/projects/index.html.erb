@@ -1,0 +1,14 @@
+<h2>Projects</h2>
+<% featured_p = @projects[-4..-1] %>
+<% featured_p.each do |project| %>
+<div>
+  <div>
+    <%= link_to project.photo, project %>
+    <%= project.title %>
+    <%= project.rounds.first.investments.first.equity %>
+  </div>
+  <div>
+
+  </div>
+</div>
+<% end %>
